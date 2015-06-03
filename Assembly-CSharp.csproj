@@ -50,6 +50,7 @@
      <Compile Include="Assets\MoveUp.cs" />
      <Compile Include="Assets\PlayerControler.cs" />
      <Compile Include="Assets\Treegrow.cs" />
+     <Compile Include="Assets\Treelife.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

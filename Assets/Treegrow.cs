@@ -6,7 +6,7 @@ public class Treegrow : MonoBehaviour
 
 	public float spawnTime = 1.0f;
 	public Transform[] spawnPoints;
-	int i=0;
+	private int i=0;
 
 	void Start(){
 		InvokeRepeating ("Spawn", spawnTime, spawnTime);
@@ -18,6 +18,7 @@ public class Treegrow : MonoBehaviour
 		int spawnPointIndex = Random.Range (0, spawnPoints.Length);
 		if (i % 2 == 0) {
 			Instantiate (treeleft, spawnPoints [spawnPointIndex].position, spawnPoints [spawnPointIndex].rotation);
+			gameObject.Equals(treeleft);
 		}
 			else 
 			Instantiate (treeright, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);

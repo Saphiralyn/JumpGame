@@ -4,6 +4,7 @@ using System;
 public class MoveUp : MonoBehaviour {
 	
 	public Vector2 speed = new Vector2(0.01f,0.01f);
+	public float posY=0.0f;
 
 	void Start(){
 	}
@@ -14,5 +15,6 @@ public class MoveUp : MonoBehaviour {
 			Position.y +=speed.y;
 	
 		transform.position = Position;
+		posY = this.transform.position.y;
 	}
 }
