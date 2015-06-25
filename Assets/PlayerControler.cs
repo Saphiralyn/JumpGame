@@ -8,20 +8,25 @@ public class PlayerControler : MonoBehaviour {
 	public float jumpV =10.0f;
 	public LayerMask groundlayer;
 	public Collider2D ground;
-	int screenwidth=Screen.width;
+//	int screenwidth=Screen.width;
 	float highest;
+	GameObject left,right;
+
 
 	
 	void Start(){
 		highest = transform.position.y;
+		left=GameObject.Find ("Left");
+		right=GameObject.Find ("Right");
 	}
 	// Update is called once per frame
 	void Update () {
 		if (highest < transform.position.y)
 			highest = transform.position.y;
 
-		jumping = Physics2D.Linecast (transform.position, transform.position - transform.up + transform.right, groundlayer);
-	
+		jumping = (Physics2D.Linecast (left.transform.position, left.transform.position - left.transform.up, groundlayer) ||
+			Physics2D.Linecast (right.transform.position, right.transform.position - right.transform.up , groundlayer));
+				
 		Vector3 Position = transform.position;
 		if (Input.GetKey ("left")) {
 			Position.x -=speed.x;
@@ -39,7 +44,7 @@ public class PlayerControler : MonoBehaviour {
 
 
 		if (jumping && Input.GetKeyDown ("space")) {
-			GetComponent<Rigidbody2D> ().AddForce (Vector3.up * 350);
+			GetComponent<Rigidbody2D> ().AddForce (Vector3.up * 300);
 		}
 	
 	if (transform.position.y < highest - 5.0f)
