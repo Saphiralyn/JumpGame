@@ -8,7 +8,8 @@ public class Score : MonoBehaviour {
 	private float higth;
 	private float highest=0.0f;
 	Text text;
-	public int fenshu;
+	private int fenshu;
+	static private int highscore;
 
 
 	void Start () {
@@ -21,9 +22,10 @@ public class Score : MonoBehaviour {
 		higth = target.transform.position.y;
 		if (highest <= higth)
 			highest = higth;
-	
+	if(highscore<higth)
+			highscore=(int)higth;
 		fenshu = (int)highest;
-		text.text = "Score:" + fenshu;
+		text.text = "Score:" + fenshu+"\n"+"HighSocre:"+highscore;
 	}
 }
 

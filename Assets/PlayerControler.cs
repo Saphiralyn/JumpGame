@@ -24,8 +24,8 @@ public class PlayerControler : MonoBehaviour {
 		if (highest < transform.position.y)
 			highest = transform.position.y;
 
-		jumping = (Physics2D.Linecast (left.transform.position, left.transform.position - left.transform.up, groundlayer) ||
-			Physics2D.Linecast (right.transform.position, right.transform.position - right.transform.up , groundlayer));
+		jumping = (Physics2D.Linecast (left.transform.position, left.transform.position - left.transform.up/2, groundlayer) ||
+			Physics2D.Linecast (right.transform.position, right.transform.position - right.transform.up/2 , groundlayer));
 				
 		Vector3 Position = transform.position;
 		if (Input.GetKey ("left")) {
@@ -47,9 +47,10 @@ public class PlayerControler : MonoBehaviour {
 			GetComponent<Rigidbody2D> ().AddForce (Vector3.up * 300);
 		}
 	
-	if (transform.position.y < highest - 5.0f)
+	if (transform.position.y < highest - 5.0f){
+		
 			Application.LoadLevel (Application.loadedLevelName);
-	
+		}
 		this.transform.position = Position;
 	}
 }

@@ -9,7 +9,7 @@ public class MoveUp : MonoBehaviour {
 	void Start(){
 	}
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		Vector3 Position = transform.position;
 			Position.y +=speed.y;
